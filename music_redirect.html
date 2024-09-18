@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Redirect</title>
+    <script>
+        function redirectToRandomMusic() {
+            const musicLinks = [
+                'https://www.youtube.com/watch?v=HfGR5iKBmAQ',
+                'https://www.youtube.com/watch?v=DsG8uTAHc30'
+            ];
+            const randomLink = musicLinks[Math.floor(Math.random() * musicLinks.length)];
+            document.getElementById('musicFrame').src = randomLink + '?autoplay=1';
+        }
+    </script>
+</head>
+<body onload="redirectToRandomMusic()">
+    <iframe id="musicFrame" width="560" height="315" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+</body>
+</html>
