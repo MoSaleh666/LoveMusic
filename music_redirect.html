@@ -3,19 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Music Redirect</title>
+    <title>Special Music for You</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            text-align: center;
+            padding: 50px;
+        }
+        h1 {
+            color: #ff6f61;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+        button {
+            background-color: #ff6f61;
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            font-size: 1.2em;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #e55d50;
+        }
+        .heart {
+            font-size: 2em;
+            color: #ff6f61;
+            margin-bottom: 20px;
+        }
+        .footer {
+            margin-top: 40px;
+            font-size: 0.9em;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <h1>For My Special Someone</h1>
+    <p>To bring a smile to your face, here's a little musical surprise. Click the button below to enjoy a random song made just for you.</p>
+    <div class="heart">❤️</div>
+    <button onclick="playRandomMusic()">Play Random Music</button>
+    <div class="footer">Created with love by Mohamed</div>
+
     <script>
-        function redirectToRandomMusic() {
+        function playRandomMusic() {
             const musicLinks = [
-                'https://www.youtube.com/embed/HfGR5iKBmAQ',
-                'https://www.youtube.com/embed/DsG8uTAHc30'
+                'https://www.youtube.com/watch?v=HfGR5iKBmAQ',
+                'https://www.youtube.com/watch?v=DsG8uTAHc30'
             ];
             const randomLink = musicLinks[Math.floor(Math.random() * musicLinks.length)];
-            document.getElementById('musicFrame').src = randomLink;
+            window.location.href = randomLink;
         }
     </script>
-</head>
-<body onload="redirectToRandomMusic()">
-    <iframe id="musicFrame" width="560" height="315" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 </body>
 </html>
