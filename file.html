@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Special Music for Bahar</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            text-align: center;
+            padding: 20px;
+            margin: 0;
+        }
+        h1 {
+            color: #ff6f61;
+            margin-bottom: 20px;
+            font-size: 2em;
+        }
+        p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+        button {
+            background-color: #ff6f61;
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            font-size: 1.2em;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background-color 0.3s;
+            margin: 10px;
+        }
+        button:hover {
+            background-color: #e55d50;
+        }
+        .heart {
+            font-size: 3em;
+            color: #ff6f61;
+            margin: 20px;
+        }
+        .heart-small {
+            font-size: 2em;
+            color: #ff6f61;
+            margin: 10px;
+        }
+        .footer {
+            margin-top: 40px;
+            font-size: 0.9em;
+            color: #555;
+        }
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.5em;
+            }
+            p {
+                font-size: 1em;
+            }
+            button {
+                padding: 10px 20px;
+                font-size: 1em;
+            }
+            .heart, .heart-small {
+                font-size: 2em;
+            }
+        }
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            max-width: 80%; /* Adjust to control size */
+            margin: 20px auto;
+            background: #000;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>To My Beloved Bahar</h1>
+    <p>With all my love, I’ve prepared a special musical surprise just for you. Click the button below to enjoy the songs made to brighten your day.</p>
+    <div class="heart">❤️</div>
+    <div class="video-container">
+        <iframe id="musicPlayer" src="" frameborder="0" allow="autoplay; encrypted-media"></iframe>
+    </div>
+    <button onclick="toggleMusic()">Next Music</button>
+    <div class="heart-small">❤️</div>
+    <div class="footer">Created with endless love by Mohamed Saleh</div>
+
+    <script>
+        let currentMusicIndex = 0;
+        const musicLinks = [
+            'https://www.youtube.com/embed/HfGR5iKBmAQ?autoplay=1&enablejsapi=1',
+            'https://www.youtube.com/embed/DsG8uTAHc30?autoplay=1&enablejsapi=1'
+        ];
+
+        function initializeMusic() {
+            currentMusicIndex = Math.floor(Math.random() * musicLinks.length);
+            document.getElementById('musicPlayer').src = musicLinks[currentMusicIndex];
+        }
+
+        function toggleMusic() {
+            currentMusicIndex = (currentMusicIndex + 1) % musicLinks.length;
+            document.getElementById('musicPlayer').src = musicLinks[currentMusicIndex];
+        }
+
+        // Initialize the music player on page load
+        window.onload = initializeMusic;
+    </script>
+</body>
+</html>
