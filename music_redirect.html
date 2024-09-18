@@ -37,9 +37,14 @@
             background-color: #e55d50;
         }
         .heart {
-            font-size: 2.5em;
+            font-size: 3em;
             color: #ff6f61;
-            margin-bottom: 20px;
+            margin: 20px;
+        }
+        .heart-small {
+            font-size: 2em;
+            color: #ff6f61;
+            margin: 10px;
         }
         .footer {
             margin-top: 40px;
@@ -57,36 +62,58 @@
                 padding: 10px 20px;
                 font-size: 1em;
             }
-            .heart {
+            .heart, .heart-small {
                 font-size: 2em;
             }
+        }
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            background: #000;
+            margin: 20px auto;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
         }
     </style>
 </head>
 <body>
     <h1>To My Beloved Bahar</h1>
-    <p>With all my love, I’ve prepared a special musical surprise just for you. Click the buttons below to enjoy the songs made to brighten your day.</p>
+    <p>With all my love, I’ve prepared a special musical surprise just for you. Click the button below to enjoy the songs made to brighten your day.</p>
     <div class="heart">❤️</div>
-    <button onclick="playRandomMusic()">Play Random Music</button>
-    <button onclick="toggleMusic()">Toggle Music</button>
-    <div class="footer">Created with endless love by Mohamed</div>
+    <div class="video-container">
+        <iframe id="musicPlayer" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+    <button onclick="toggleMusic()">Next Music</button>
+    <div class="heart-small">❤️</div>
+    <div class="footer">Created with endless love by Mohammedsaleh</div>
 
     <script>
         let currentMusicIndex = 0;
         const musicLinks = [
-            'https://www.youtube.com/watch?v=HfGR5iKBmAQ',
-            'https://www.youtube.com/watch?v=DsG8uTAHc30'
+            'https://www.youtube.com/embed/HfGR5iKBmAQ?enablejsapi=1',
+            'https://www.youtube.com/embed/DsG8uTAHc30?enablejsapi=1'
         ];
 
-        function playRandomMusic() {
-            const randomLink = musicLinks[Math.floor(Math.random() * musicLinks.length)];
-            window.location.href = randomLink;
+        function initializeMusic() {
+            currentMusicIndex = Math.floor(Math.random() * musicLinks.length);
+            document.getElementById('musicPlayer').src = musicLinks[currentMusicIndex];
         }
 
         function toggleMusic() {
             currentMusicIndex = (currentMusicIndex + 1) % musicLinks.length;
-            window.location.href = musicLinks[currentMusicIndex];
+            document.getElementById('musicPlayer').src = musicLinks[currentMusicIndex];
         }
+
+        // Initialize the music player on page load
+        window.onload = initializeMusic;
     </script>
 </body>
 </html>
