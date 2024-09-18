@@ -71,9 +71,9 @@
             padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
             height: 0;
             overflow: hidden;
-            max-width: 100%;
-            background: #000;
+            max-width: 80%; /* Adjust to control size */
             margin: 20px auto;
+            background: #000;
         }
         .video-container iframe {
             position: absolute;
@@ -81,6 +81,7 @@
             left: 0;
             width: 100%;
             height: 100%;
+            border: 0;
         }
     </style>
 </head>
@@ -89,7 +90,7 @@
     <p>With all my love, I’ve prepared a special musical surprise just for you. Click the button below to enjoy the songs made to brighten your day.</p>
     <div class="heart">❤️</div>
     <div class="video-container">
-        <iframe id="musicPlayer" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        <iframe id="musicPlayer" src="" frameborder="0" allow="autoplay; encrypted-media"></iframe>
     </div>
     <button onclick="toggleMusic()">Next Music</button>
     <div class="heart-small">❤️</div>
